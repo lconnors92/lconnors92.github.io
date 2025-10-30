@@ -6,3 +6,19 @@ body {
 header, main, nav, footer {
     text-align: center;
 }
+
+/* links within "nav" container */
+nav a {         
+    padding: 15px;
+    padding-bottom: 4px;
+    font-size: 1.8em;
+    text-decoration: none; /* removes underline */
+    color: white;       /*links = blue by default*/
+}
+
+/*pseudo class*/
+nav a:hover {
+    border-bottom: 2px orange solid;
+    font-size: 2em;
+    transition: .9s; /* transition effect */
+}
