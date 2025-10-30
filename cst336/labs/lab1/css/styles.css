@@ -12,6 +12,11 @@ main {
     justify-content: space-evenly;
 }
 
+footer {
+    font-size: 1.5px;
+    color: #92ea3fe7
+}
+
 /* links within "nav" container */
 nav a {         
     padding: 15px;
