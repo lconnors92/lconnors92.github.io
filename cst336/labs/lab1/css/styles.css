@@ -1,3 +1,5 @@
+
+/* General website design code */
 body {
     background-color:black;
     color:gray;
@@ -40,3 +42,7 @@ nav a:hover {
     transition: .9s; /* transition effect */
 }
 
+/* "About" page table style */
+table {
+    margin: 0px auto;
+}
