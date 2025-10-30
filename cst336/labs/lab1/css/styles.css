@@ -9,19 +9,26 @@ header, main, nav, footer {
 
 main {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 footer {
-    font-size: 1.5px;
+    font-size: 13px;
     color: #92ea3fe7
 }
 
-/* links within "nav" container */
+
+
+/* links within "nav" container and
+indicator of current page  using "active"*/
+.active {         
+    color:#eac23fe7
+}
+
 nav a {         
     padding: 15px;
     padding-bottom: 4px;
-    font-size: 1.8em;
+    font-size: 1.4em;
     text-decoration: none; /* removes underline */
     color: white;       /*links = blue by default*/
 }
@@ -32,3 +39,4 @@ nav a:hover {
     font-size: 2em;
     transition: .9s; /* transition effect */
 }
+
