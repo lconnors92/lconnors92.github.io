@@ -42,7 +42,38 @@ nav a:hover {
     transition: .9s; /* transition effect */
 }
 
-/* "About" page table style */
+/* "About" page table styles */
 table {
+    /* is this the "center div" meme I see online everywhere? */
     margin: 0px auto;
 }
+
+td {
+    padding-right: 10px;
+    font-size: 1.3em;
+}
+
+td strong {
+    color:orange;
+}
+
+#table-header {
+    background-color: #351a00;
+}
+
+.table-row {
+    background-color: #753900;
+}
+
+/* "About" page list of interest styles */
+ul {
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Hobby text styles */
+.hobby {
+    color: yellow;
+}
+
