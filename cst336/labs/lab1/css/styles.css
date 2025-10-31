@@ -78,8 +78,9 @@ ul {
 }
 
 /* "Contact" page styles */
-.contact-link {
-    display:flex;
+#contact-link {
+    display: flex;
     justify-content: center;
 }
+
 
