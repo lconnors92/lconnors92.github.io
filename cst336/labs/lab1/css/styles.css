@@ -2,7 +2,7 @@
 /* General website design code */
 body {
     background-color:black;
-    color:gray;
+    color:white;
 }
 
 header, main, nav, footer {
@@ -18,6 +18,14 @@ footer {
     font-size: 13px;
     color: #92ea3fe7
 }
+
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+
 
 
 
