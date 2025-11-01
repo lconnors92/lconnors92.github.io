@@ -1,0 +1,103 @@
+
+/* General website design code */
+body {
+    background-color:black;
+    color:white;
+}
+
+header, main, nav, footer {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    font-size: 11px;
+    color: #92ea3fe7
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+
+
+
+
+/* links within "nav" container and
+indicator of current page  using "active"*/
+.active {         
+    color:#eac23fe7
+}
+
+nav a {         
+    padding: 15px;
+    padding-bottom: 4px;
+    font-size: 1.4em;
+    text-decoration: none; /* removes underline */
+    color: white;       /*links = blue by default*/
+}
+
+/*pseudo class*/
+nav a:hover {
+    border-bottom: 2px orange solid;
+    font-size: 2em;
+    transition: .9s; /* transition effect */
+}
+
+/* "About" page table styles */
+table {
+    /* is this the "center div" meme I see online everywhere? */
+    margin: 0px auto;
+}
+
+td {
+    padding-right: 10px;
+    font-size: 1.3em;
+}
+
+td strong {
+    color:orange;
+}
+
+#table-header {
+    background-color: #351a00;
+}
+
+.table-row {
+    background-color: #753900;
+}
+
+/* "About" page list of interest styles */
+ul {
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Hobby text styles */
+.hobby {
+    color: yellow;
+}
+
+/* "Contact" page styles */
+#contact-link {
+    display: flex;
+    justify-content: center;
+}
+
+/*Google Fonts*/
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
