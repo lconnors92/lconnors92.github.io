@@ -103,15 +103,16 @@ body {
   font-style: normal;
 }
 
-#fact-text-div {
+
+
+/* /* NEW STYLES FOR HW1 / */
+
+p {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-weight: 350;
   font-style: normal;
 }
-
-
-/* /* NEW STYLES FOR HW1 / */
 
 img {
     border: 6px solid #04468c;
@@ -133,5 +134,12 @@ p {
 }
 
 .ext-link {
-    color: #c3ef41;
+    color: #e5c913;
+    text-decoration: none; /* removes underline */
+}
+
+.ext-link:hover {
+    border-bottom: 2px #e5c913;
+    font-size: 2em;
+    transition: .9s; /* transition effect */
 }
