@@ -114,6 +114,11 @@ body {
 /* /* NEW STYLES FOR HW1 / */
 
 img {
-    border: 6px solid #7db6f3;
+    border: 6px solid #04468c;
     border-radius: 10px; 
+}
+
+img:hover {
+    transform: scale(1.55);
+    transition: 1.1s;
 }
