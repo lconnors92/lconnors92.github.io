@@ -103,7 +103,7 @@ body {
   font-style: normal;
 }
 
-#fact-text {
+#fact-text-div {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-weight: 350;
@@ -119,6 +119,19 @@ img {
 }
 
 img:hover {
-    transform: scale(1.55);
-    transition: 1.1s;
+    transform: scale(1.2);
+    transition: .9s;
+}
+
+p {
+    line-height: normal;
+    margin-bottom: 1.1em;
+    max-width: 300;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.ext-link {
+    color: #c3ef41;
 }
