@@ -109,3 +109,11 @@ body {
   font-weight: 350;
   font-style: normal;
 }
+
+
+/* /* NEW STYLES FOR HW1 / */
+
+img {
+    border: 6px solid #7db6f3;
+    border-radius: 10px; 
+}
