@@ -19,11 +19,15 @@ footer {
     color: #92ea3fe7
 }
 
+
 h1 {
-  font-family: "Oswald", sans-serif;
+  font-family: "Workbench", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 390;
+  font-weight: 400;
   font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
 }
 
 
@@ -94,10 +98,14 @@ ul {
 /*Google Fonts*/
 
 body {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
+  font-family: "Carrois Gothic SC", sans-serif;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+}
+
+#fact-text {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
 }
