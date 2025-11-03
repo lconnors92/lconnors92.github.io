@@ -66,15 +66,15 @@ td {
 }
 
 td strong {
-    color:orange;
+    color:rgb(255, 255, 255);
 }
 
 #table-header {
-    background-color: #351a00;
+    background-color: #4f6ddb;
 }
 
 .table-row {
-    background-color: #753900;
+    background-color: #65a4c1;
 }
 
 /* "About" page list of interest styles */
