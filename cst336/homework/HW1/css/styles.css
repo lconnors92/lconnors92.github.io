@@ -151,5 +151,16 @@ img.gif {
   /* margin: 1rem auto; */
 
   border: 6px solid #04468c;
-  border-radius: 10px;
+
+}
+
+/* aside style */
+aside {
+  background-color: #2582e0;
+  border-left: 4px solid #0d2083e7;
+  padding: 10px 15px;
+  margin: 25px auto;
+  width: 80%;
+  font-size: 0.9em;
+  border-radius: 5px;
 }
