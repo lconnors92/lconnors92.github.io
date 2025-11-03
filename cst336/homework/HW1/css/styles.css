@@ -148,7 +148,7 @@ img.gif {
   width: 750px;
   border-radius: 10px;
   display: block;
-  margin: 1rem auto;
+  /* margin: 1rem auto; */
 
   border: 6px solid #04468c;
   border-radius: 10px;
