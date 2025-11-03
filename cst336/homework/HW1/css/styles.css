@@ -164,3 +164,11 @@ aside {
   font-size: 0.9em;
   border-radius: 5px;
 }
+
+iframe {
+  width: 800px;
+  height: 600px;
+  border: none;
+  margin: 0;
+}
+
