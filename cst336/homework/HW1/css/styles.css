@@ -114,12 +114,12 @@ p {
   font-style: normal;
 }
 
-img {
+img.still {
     border: 6px solid #04468c;
     border-radius: 10px; 
 }
 
-img:hover {
+img.still:hover {
     transform: scale(1.2);
     transition: .9s;
 }
@@ -142,4 +142,14 @@ p {
     border-bottom: 2px #e5c913;
     font-size: 2em;
     transition: .9s; /* transition effect */
+}
+
+img.gif {
+  width: 750px;
+  border-radius: 10px;
+  display: block;
+  margin: 1rem auto;
+
+  border: 6px solid #04468c;
+  border-radius: 10px;
 }
