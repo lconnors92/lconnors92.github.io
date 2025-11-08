@@ -42,9 +42,9 @@ function checkGuess() {
     feedback.textContent = "";
     let guess = document.querySelector("#playerGuess").value;
     console.log("Player guess: " + guess);
-    if (guess < 1 || guess > 99) {
+    if ((guess < 1 || guess > 99) || isNaN(Number(guess))) {
         let feedback = document.querySelector("#feedback");
-        feedback.textContent = "Enter a number between 1 and 99";
+        feedback.textContent = "I said, ENTER A NUMBER BETWEEN 1 and 99, DARK KNIGHT!";
         feedback.style.color = "red";
         return;
     }
@@ -52,7 +52,7 @@ function checkGuess() {
     console.log("Attempts: " + attempts);
     feedback.style.color = "orange";
     if (guess == randomNumber) {
-        feedback.textContent = "You guessed it! You Won!";
+        feedback.textContent = "Somehow, you beat my riddle! The number was " + guess + "! I am foiled again! You Won, HERO!";
         feedback.style.color = "darkgreen";
         wins++;
         gameOver();
