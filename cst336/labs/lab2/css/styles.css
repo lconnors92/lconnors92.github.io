@@ -44,6 +44,15 @@ h1, h2, #main {
   text-shadow: 0 0 8px #2ee00e;
 }
 
+button {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+  transform: scale(1.12);
+}
+
 
 #gif {
   border: 2px solid #2ee00e;
