@@ -16,11 +16,19 @@ header {
 h1 {
   font-family: "Workbench", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   font-variation-settings:
     "BLED" 0,
     "SCAN" 0;
+}
+
+h2 {
+  border: 2px solid #2ee00e;
+  background-color: black;
+  border-radius: 10px;
+  padding: 30px;
+  display: inline-block;
 }
 
 #main {
@@ -29,7 +37,13 @@ h1 {
   border-radius: 10px;
   padding: 30px;
   display: inline-block;
+  box-shadow: 0 0 40px #2ee00e;
 }
+
+h1, h2, #main {
+  text-shadow: 0 0 8px #2ee00e;
+}
+
 
 #gif {
   border: 2px solid #2ee00e;
@@ -37,13 +51,22 @@ h1 {
 }
 /*Google Fonts*/
 
+h2 {
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+}
+
 body {
   font-family: "Carrois Gothic SC", sans-serif;
   font-weight: 400;
   font-style: normal;
 
 }
-
 
 button {
   font-family: "Carrois Gothic SC", sans-serif;

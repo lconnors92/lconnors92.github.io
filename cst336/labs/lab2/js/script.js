@@ -30,10 +30,9 @@ function initializeGame() {
    document.querySelector("#guesses").textContent = "";
    document.querySelector("#attempts").textContent = 7;
 
-   //attempting
+   //attempting to add wins/loss counters
    document.querySelector("#wins").textContent = wins;
    document.querySelector("#losses").textContent = losses;
-
 
 }
 
@@ -44,7 +43,7 @@ function checkGuess() {
     console.log("Player guess: " + guess);
     if ((guess < 1 || guess > 99) || isNaN(Number(guess))) {
         let feedback = document.querySelector("#feedback");
-        feedback.textContent = "I said, ENTER A NUMBER BETWEEN 1 and 99, DARK KNIGHT!";
+        feedback.textContent = "I said, enter A NUMBER BETWEEN 1 and 99, DARK KNIGHT!";
         feedback.style.color = "red";
         return;
     }
@@ -53,7 +52,7 @@ function checkGuess() {
     feedback.style.color = "orange";
     if (guess == randomNumber) {
         feedback.textContent = "Somehow, you beat my riddle! The number was " + guess + "! I am foiled again! You Won, HERO!";
-        feedback.style.color = "darkgreen";
+        feedback.style.color = "lightgreen";
         wins++;
         gameOver();
     } else {
