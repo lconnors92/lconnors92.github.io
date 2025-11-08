@@ -38,6 +38,7 @@ h2 {
   padding: 30px;
   display: inline-block;
   box-shadow: 0 0 40px #2ee00e;
+  margin: 20px;
 }
 
 h1, h2, #main {
