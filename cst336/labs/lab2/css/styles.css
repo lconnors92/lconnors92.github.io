@@ -3,11 +3,14 @@ body {
     background-color:black;
     color:white;
     text-align: center;
-    background-image: url(https://wallpapers.com/images/featured/riddler-ka4nxhtpdhh6xdqd.jpg);
-}
+    background-image: url(https://static0.cbrimages.com/wordpress/wp-content/uploads/2023/09/dc-the-riddler.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
 
-header, main, footer {
-    text-align: center;
+header {
+  text-align: center;
 }
 
 h1 {
@@ -20,13 +23,35 @@ h1 {
     "SCAN" 0;
 }
 
+#main {
+  border: 2px solid #2ee00e;
+  background-color: black;
+  border-radius: 10px;
+  padding: 30px;
+  display: inline-block;
+}
 
+#gif {
+  border: 2px solid #2ee00e;
+  border-radius: 10px;
+}
 /*Google Fonts*/
 
 body {
   font-family: "Carrois Gothic SC", sans-serif;
   font-weight: 400;
   font-style: normal;
+
 }
 
 
+button {
+  font-family: "Carrois Gothic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: #0f0f0f;
+  color: #e5e5e5;
+  border: 2px solid #2ee00e;
+  padding: .5rem 1rem;
+  border-radius: 10px;
+}
