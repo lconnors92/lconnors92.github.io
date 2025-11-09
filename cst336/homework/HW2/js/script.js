@@ -5,7 +5,9 @@ document.querySelector("button").addEventListener("click", gradeQuiz);
 var score = 0;
 var attempts = localStorage.getItem("total_attempts");
 
+
 displayQ4Choices();
+displayQ7Choices();
 
 //Functions
 function displayQ4Choices() {
@@ -16,6 +18,15 @@ function displayQ4Choices() {
             value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label>`;
     }
 }//displayQ4choices
+
+function displayQ7Choices() {
+    let q7ChoicesArray = ["Arizona", "Utah", "Nevada", "Colorado"];
+    q7ChoicesArray = _.shuffle(q7ChoicesArray);
+    for (let i=0; i < q7ChoicesArray.length; i++) {
+        document.querySelector("#q7Choices").innerHTML += ` <input type="radio" name="q7" id= "${q7ChoicesArray[i]}" 
+            value="${q7ChoicesArray[i]}"> <label for="${q7ChoicesArray[i]}"> ${q7ChoicesArray[i]}</label>`;
+    }
+}//displayQ7choices
 
 
 function isFormValid() {
@@ -31,7 +42,7 @@ function rightAnswer(index) {
     document.querySelector(`#q${index}Feedback`).innerHTML = "Correct!";
     document.querySelector(`#q${index}Feedback`).className = "bg-success text-white";
     document.querySelector(`#markImg${index}`).innerHTML = "<img src='img/checkmark.png' alt='Checkmark'>";
-    score += 20;
+    score += 10;
 }
 
 function wrongAnswer(index) {
@@ -54,6 +65,11 @@ function gradeQuiz() {
     let q2Response = document.querySelector("#q2").value;
     let q4Response = document.querySelector("input[name=q4]:checked").value;
     let q5Response = document.querySelector("#q5").value.toLowerCase();
+    let q6Response = document.querySelector("#q6").value.toLowerCase();
+    let q7Response = document.querySelector("input[name=q7]:checked").value;
+    let q8Response = document.querySelector("#q8").value.toLowerCase();
+    let q9Response = document.querySelector("#q9").value.toLowerCase();
+    let q10Response = document.querySelector("#q10").value.toLowerCase();
 
 
     //Grading question 1
@@ -91,11 +107,51 @@ function gradeQuiz() {
     }
 
     //Grading question 5
-    if (q5Response == "sacramento") {
+    if (q5Response == "columbus") {
         rightAnswer(5);
     }
     else {
         wrongAnswer(5);
+    }
+
+    //Grading question 6
+    if (q6Response == "minnesota") {
+        rightAnswer(6);
+    }
+    else {
+        wrongAnswer(6);
+    }
+
+    //Grading question 7
+    if (q7Response == "Colorado") {
+        rightAnswer(7);
+    }
+    else {
+        wrongAnswer(7);
+    }
+
+    //Grading question 8
+    if (q8Response == "columbus") {
+        rightAnswer(8);
+    }
+    else {
+        wrongAnswer(8);
+    }
+
+    //Grading question 9
+    if (q9Response == "columbus") {
+        rightAnswer(9);
+    }
+    else {
+        wrongAnswer(9);
+    }
+
+    //Grading question 10
+    if (q10Response == "columbus") {
+        rightAnswer(10);
+    }
+    else {
+        wrongAnswer(10);
     }
 
     //Display quiz score and attempts per assignment specs:
@@ -114,3 +170,5 @@ function gradeQuiz() {
     localStorage.setItem("total_attempts", attempts);
 
 }//gradeQuiz
+
+
