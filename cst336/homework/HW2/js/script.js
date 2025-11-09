@@ -3,6 +3,7 @@ document.querySelector("button").addEventListener("click", gradeQuiz);
 
 //Global Variables
 var score = 0;
+var attempts = localStorage.getItem("total_attempts");
 
 displayQ4Choices();
 
@@ -52,6 +53,8 @@ function gradeQuiz() {
     let q1Response = document.querySelector("#q1").value.toLowerCase();
     let q2Response = document.querySelector("#q2").value;
     let q4Response = document.querySelector("input[name=q4]:checked").value;
+    let q5Response = document.querySelector("#q5").value.toLowerCase();
+
 
     //Grading question 1
     if (q1Response == "sacramento") {
@@ -87,7 +90,27 @@ function gradeQuiz() {
        wrongAnswer(4);
     }
 
-    //Display quiz score:
+    //Grading question 5
+    if (q5Response == "sacramento") {
+        rightAnswer(5);
+    }
+    else {
+        wrongAnswer(5);
+    }
+
+    //Display quiz score and attempts per assignment specs:
     document.querySelector("#totalScore").innerHTML = `Total Score: ${score}`;
+    document.querySelector("#totalAttempts").innerHTML = `Total Attempts: ${++attempts}`;
+    if (score < 80) {
+        document.querySelector("#totalScore").innerHTML = `Total Score: ${score}`;
+        document.querySelector(`#totalScore`).className = "bg-danger text-black";
+    } else if (score == 80) {
+        document.querySelector("#totalScore").innerHTML = `Total Score: ${score}`;
+        document.querySelector(`#totalScore`).className = "bg-success text-black";
+    } else if (score > 80) {
+        document.querySelector("#totalScore").innerHTML = `Total Score: ${score}! NICE WORK!!`;
+        document.querySelector(`#totalScore`).className = "bg-success text-white";
+    }
+    localStorage.setItem("total_attempts", attempts);
 
 }//gradeQuiz
