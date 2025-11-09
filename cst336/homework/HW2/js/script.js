@@ -68,7 +68,6 @@ function gradeQuiz() {
     let q6Response = document.querySelector("#q6").value.toLowerCase();
     let q7Response = document.querySelector("input[name=q7]:checked").value;
     let q8Response = document.querySelector("#q8").value.toLowerCase();
-    let q9Response = document.querySelector("#q9").value.toLowerCase();
     let q10Response = document.querySelector("#q10").value.toLowerCase();
 
 
@@ -123,7 +122,7 @@ function gradeQuiz() {
     }
 
     //Grading question 7
-    if (q7Response == "Colorado") {
+    if (q7Response == "Arizona") {
         rightAnswer(7);
     }
     else {
@@ -139,7 +138,8 @@ function gradeQuiz() {
     }
 
     //Grading question 9
-    if (q9Response == "columbus") {
+    if (document.querySelector("#Guam").checked && document.querySelector("#Virgin").checked && 
+        !document.querySelector("#Nova").checked && !document.querySelector("#Buckinghamingtonworcesterburgshire").checked) {
         rightAnswer(9);
     }
     else {
@@ -147,7 +147,7 @@ function gradeQuiz() {
     }
 
     //Grading question 10
-    if (q10Response == "columbus") {
+    if (q10Response == "maine, new jersey, arizona, florida") {
         rightAnswer(10);
     }
     else {
