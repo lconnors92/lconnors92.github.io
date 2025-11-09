@@ -106,7 +106,7 @@ function gradeQuiz() {
     }
 
     //Grading question 5
-    if (q5Response == "columbus") {
+    if (q5Response == "statue of liberty") {
         rightAnswer(5);
     }
     else {
