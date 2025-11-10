@@ -35,6 +35,67 @@ function isFormValid() {
         isValid = false;
         document.querySelector("#validationFdbk").innerHTML = "Question 1 was not answered.";
     }
+
+    if(document.querySelector("#q2").value == "") {
+        isValid = false;
+        document.querySelector("#validationFdbk").innerHTML = "Question 2 was not answered.";
+    }
+
+    if(!document.querySelector("input[name='q4']:checked")) {
+        isValid = false;
+        document.querySelector("#validationFdbk").innerHTML = "Question 4 was not answered.";
+    }
+
+
+    if(document.querySelector("#q5").value == "") {
+        isValid = false;
+        document.querySelector("#validationFdbk").innerHTML = "Question 5 was not answered.";
+    }
+
+    if(document.querySelector("#q6").value == "") {
+        isValid = false;
+        document.querySelector("#validationFdbk").innerHTML = "Question 6 was not answered.";
+    }
+
+    if(!document.querySelector("input[name='q7']:checked")) {
+        isValid = false;
+        document.querySelector("#validationFdbk").innerHTML = "Question 7 was not answered.";
+    }
+
+    if(document.querySelector("#q8").value == "") {
+        isValid = false;
+        document.querySelector("#validationFdbk").innerHTML = "Question 8 was not answered.";
+    }
+
+    if(document.querySelector("#q10").value == "") {
+        isValid = false;
+        document.querySelector("#validationFdbk").innerHTML = "Question 10 was not answered.";
+    }
+    
+
+
+
+    // if(document.querySelector("#q3").value == "") {
+    //     isValid = false;
+    //     document.querySelector("#validationFdbk").innerHTML = "Question 3 was not answered.";
+    // }
+    // if(document.querySelector("#q5").value == "") {
+    //     isValid = false;
+    //     document.querySelector("#validationFdbk").innerHTML = "Question 5 was not answered.";
+    // } 
+    // if(document.querySelector("#q6").value == "") {
+    //     isValid = false;
+    //     document.querySelector("#validationFdbk").innerHTML = "Question 6 was not answered.";
+    // }if(document.querySelector("#q8").value == "") {
+    //     isValid = false;
+    //     document.querySelector("#validationFdbk").innerHTML = "Question 8 was not answered.";
+    // } if(document.querySelector("#q9").value == "") {
+    //     isValid = false;
+    //     document.querySelector("#validationFdbk").innerHTML = "Question 9 was not answered.";
+    // } if(document.querySelector("#q10").value == "") {
+    //     isValid = false;
+    //     document.querySelector("#validationFdbk").innerHTML = "Question 10 was not answered.";
+    // } 
     return isValid;
 }//isFormValid
 
