@@ -19,10 +19,11 @@ async function displayCity() {
 async function displayCounties() {
     let state = document.querySelector("#state").value;
     // alert(document.querySelector("#state").value);
-    let url = `https://csumb.space/api/cityInfoAPI.php?state=${state}`;
+    let url = `https://csumb.space/api/countyListAPI.php?state=${state}`;
     let response = await fetch(url);
     let data = await response.json();
     let countyList = document.querySelector("#county");
+    countyList.innerHTML = "<option> Select County </option>";
     for (let i=0; i < data.length; i++) {
         countyList.innerHTML += `<option> ${data[i].county} </option>`;
     }
