@@ -1,6 +1,8 @@
 //event listeners
 document.querySelector("#zip").addEventListener("change", displayCity);
 document.querySelector("#state").addEventListener("change", displayCounties);
+document.querySelector("#username").addEventListener("change", checkUsername);
+
 
 //functions
 
@@ -27,4 +29,23 @@ async function displayCounties() {
     for (let i=0; i < data.length; i++) {
         countyList.innerHTML += `<option> ${data[i].county} </option>`;
     }
+}
+
+//checking username
+async function checkUsername() {
+    let username = document.querySelector("#username").value;
+    let url = `https://csumb.space/api/usernamesAPI.php?username=${username}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    let usernameError = document.querySelector("#usernameError");
+    if (data.available) {
+        usernameError.innerHTML = " Username available!";
+        usernameError.computedStyleMap.color = "green";
+    } 
+    else {
+        usernameError.innerHTML = " Username taken";
+        username.style.color = "red";
+    }
+
+    
 }
