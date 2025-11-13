@@ -1,0 +1,173 @@
+
+/* General website design code */
+body {
+    background-color:black;
+    color:white;
+}
+
+body, footer, form, h1 {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    font-size: 11px;
+    color: #92ea3fe7
+}
+
+
+h1 {
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+}
+
+
+
+
+/* links within "nav" container and
+indicator of current page  using "active"*/
+.active {         
+    color:#eac23fe7
+}
+
+nav a {         
+    padding: 15px;
+    padding-bottom: 4px;
+    font-size: 1.4em;
+    text-decoration: none; /* removes underline */
+    color: white;       /*links = blue by default*/
+}
+
+/*pseudo class*/
+nav a:hover {
+    border-bottom: 2px orange solid;
+    font-size: 2em;
+    transition: .9s; /* transition effect */
+}
+
+/* "About" page table styles */
+table {
+    /* is this the "center div" meme I see online everywhere? */
+    margin: 0px auto;
+}
+
+td {
+    padding-right: 10px;
+    font-size: 1.3em;
+}
+
+td strong {
+    color:rgb(255, 255, 255);
+}
+
+#table-header {
+    background-color: #4f6ddb;
+}
+
+.table-row {
+    background-color: #65a4c1;
+}
+
+/* "About" page list of interest styles */
+ul {
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Hobby text styles */
+.list-fact {
+    color:#a4cbf5;
+}
+
+/* "Contact" page styles */
+#contact-link {
+    display: flex;
+    justify-content: center;
+}
+
+/*Google Fonts*/
+
+body {
+  font-family: "Carrois Gothic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+/* /* NEW STYLES FOR HW1 / */
+
+p {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+
+img.still {
+    border: 6px solid #04468c;
+    border-radius: 10px; 
+}
+
+img.still:hover {
+    transform: scale(1.2);
+    transition: .9s;
+}
+
+p {
+    line-height: normal;
+    margin-bottom: 1.1em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.ext-link {
+    color: #e5c913;
+    text-decoration: none; /* removes underline */
+}
+
+.ext-link:hover {
+    border-bottom: 2px #e5c913;
+    font-size: 2em;
+    transition: .9s; /* transition effect */
+}
+
+img.gif {
+  width: 750px;
+  border-radius: 10px;
+  display: block;
+  /* margin: 1rem auto; */
+
+  border: 6px solid #04468c;
+
+}
+
+/* aside style */
+aside {
+  background-color: #2582e0;
+  border-left: 4px solid #0d2083e7;
+  padding: 10px 15px;
+  margin: 25px auto;
+  width: 80%;
+  font-size: 0.9em;
+  border-radius: 5px;
+}
+
+iframe {
+  width: 800px;
+  height: 600px;
+  border: none;
+  margin: 0;
+}
