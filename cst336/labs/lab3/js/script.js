@@ -5,6 +5,8 @@ document.querySelector("#username").addEventListener("focus", checkUsername);
 document.querySelector("#signupForm").addEventListener("submit", function(event) {
     validateForm(event);
 });
+document.querySelector("#password").addEventListener("focus", examplePwd);
+
 
 displayStates();
 
@@ -18,7 +20,7 @@ async function displayStates() {
     let stateList = document.querySelector("#state");
     stateList.innerHTML = "<option> Select State </option>";
     for (let i=0; i < data.length; i++) {
-        stateList.innerHTML += `<option>${data[i].state} </option>`;
+        stateList.innerHTML += `<option value="${data[i].usps}">${data[i].state} </option>`;
     }
 }
 
@@ -104,7 +106,7 @@ async function examplePwd() {
     let response = await fetch(url);
     let data = await response.json();
     let suggestedPwd = document.querySelector("#suggestedPwd");
-    suggestedPwd.innerHTML += `Example PW: ${data.password} `;
+    suggestedPwd.innerHTML = `Example PW: ${data.password} `;
 }
 
 //Validate password at least 6 chars and retype password is eqal
