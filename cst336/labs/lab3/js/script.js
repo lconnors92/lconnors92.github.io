@@ -3,9 +3,7 @@ document.querySelector("#zip").addEventListener("change", displayCity);
 document.querySelector("#state").addEventListener("change", displayCounties);
 document.querySelector("#username").addEventListener("change", checkUsername);
 
-
 //functions
-
 //Displaying city from Web API after entering a zip code (need async for fetch/ any await)
 async function displayCity() {
     let zipCode = document.querySelector("#zip").value;
@@ -45,7 +43,5 @@ async function checkUsername() {
     else {
         usernameError.innerHTML = " Username taken";
         username.style.color = "red";
-    }
-
-    
+    } 
 }
