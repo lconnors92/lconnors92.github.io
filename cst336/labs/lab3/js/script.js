@@ -42,6 +42,9 @@ async function displayCity() {
     else {
         zipError.innerHTML = "Zip code not found!";
         zipError.style.color = "red";
+        document.querySelector("#city").innerHTML = "";
+        document.querySelector("#latitude").innerHTML = "";
+        document.querySelector("#longitude").innerHTML = "";
     }
     
 }
