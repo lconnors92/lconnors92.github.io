@@ -6,7 +6,7 @@ document.querySelector("#signupForm").addEventListener("submit", function(event)
     validateForm(event);
 });
 
-
+//need a displayStates?
 
 //functions
 //Displaying city from Web API after entering a zip code (need async for fetch/ any await)
