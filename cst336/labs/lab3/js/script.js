@@ -10,7 +10,7 @@ displayStates();
 
 //need a displayStates? https://csumb.space/api/allStatesAPI.php
 async function displayStates() {
-    let state = document.querySelector("#state").value;
+    // let state = document.querySelector("#state").value; don't need this, "state" is attribute in API
     // alert(document.querySelector("#state").value);
     let url = `https://csumb.space/api/allStatesAPI.php`;
     let response = await fetch(url);
@@ -82,7 +82,9 @@ function validateForm(e) {
     document.querySelector("#passwordError").innerHTML = "";
 
     if (password.length < 6) {
-        document.querySelector("#suggestedPwd").innerHTML = "Example pw: h0tdog42";
+        examplePwd();
+        // document.querySelector("#suggestedPwd").innerHTML = "Example pw: h0tdog42";
+        // examplePwd();
         //generate password with: https://csumb.space/api/suggestedPassword.php?length=8
         isValid = false;
     }
@@ -94,6 +96,15 @@ function validateForm(e) {
         e.preventDefault();
     }
 
+}
+
+async function examplePwd() {
+    let password = document.querySelector("#password").value;
+    let url = `https://csumb.space/api/suggestedPassword.php?length=8`;
+    let response = await fetch(url);
+    let data = await response.json();
+    let suggestedPwd = document.querySelector("#suggestedPwd");
+    suggestedPwd.innerHTML += `Example PW: ${data.password} `;
 }
 
 //Validate password at least 6 chars and retype password is eqal
