@@ -90,3 +90,13 @@ p {
     display: block;
     margin: 20px auto;
 }
+
+#subButton:hover {
+    background-color: #ff7f1a;
+    transform: scale(1.15);
+    transition: 0.7s;
+}
+
+/* tryout rules , need abbout 7 more*/
+
+
