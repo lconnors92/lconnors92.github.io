@@ -33,7 +33,8 @@ async function displayCity() {
     let response = await fetch(url);
     let data = await response.json();
     let zipError = document.querySelector("#zipError");
-    if (data.available) {
+    if (data.city) {
+        zipError.innerHTML = "";
         document.querySelector("#city").innerHTML = data.city;
         document.querySelector("#latitude").innerHTML = data.latitude;
         document.querySelector("#longitude").innerHTML = data.longitude;
