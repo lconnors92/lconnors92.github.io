@@ -1,7 +1,7 @@
 //event listeners
 document.querySelector("#zip").addEventListener("change", displayCity);
 document.querySelector("#state").addEventListener("change", displayCounties);
-document.querySelector("#username").addEventListener("focus", checkUsername);
+document.querySelector("#username").addEventListener("input", checkUsername);
 document.querySelector("#signupForm").addEventListener("submit", function(event) {
     validateForm(event);
 });
@@ -32,9 +32,17 @@ async function displayCity() {
     let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipCode}`;
     let response = await fetch(url);
     let data = await response.json();
-    document.querySelector("#city").innerHTML = data.city;
-    document.querySelector("#latitude").innerHTML = data.latitude;
-    document.querySelector("#longitude").innerHTML = data.longitude;
+    let zipError = document.querySelector("#zipError");
+    if (data.available) {
+        document.querySelector("#city").innerHTML = data.city;
+        document.querySelector("#latitude").innerHTML = data.latitude;
+        document.querySelector("#longitude").innerHTML = data.longitude;
+    }
+    else {
+        zipError.innerHTML = "Zip code not found!";
+        zipError.style.color = "red";
+    }
+    
 }
 
 //display counties based on 2-letter abbrev of state
@@ -58,11 +66,13 @@ async function checkUsername() {
     let response = await fetch(url);
     let data = await response.json();
     let usernameError = document.querySelector("#usernameError");
-    if (data.available) {
+    if (username.length === 0) {
+        usernameError.innerHTML = "Username Required!";
+        usernameError.style.color = "red";
+    } else if (data.available) {
         usernameError.innerHTML = " Username available!";
         usernameError.style.color = "green";
-    } 
-    else {
+    } else if (!data.available) {
         usernameError.innerHTML = " Username taken";
         usernameError.style.color = "red";
     } 
@@ -75,6 +85,7 @@ function validateForm(e) {
     let username = document.querySelector("#username").value;
     if (username.length == 0) {
         document.querySelector("#usernameError").innerHTML = "Username Required!";
+        document.querySelector("#usernameError").style.color = "red";
         isValid = false;
     }
     //validate password
@@ -92,6 +103,7 @@ function validateForm(e) {
     }
     if (password != passwordRetype) {
         document.querySelector("#passwordError").innerHTML = "Passwords do not match!";
+        document.querySelector("#passwordError").style.color = "red";
         isValid = false;
     }
     if (!isValid) {
@@ -106,7 +118,8 @@ async function examplePwd() {
     let response = await fetch(url);
     let data = await response.json();
     let suggestedPwd = document.querySelector("#suggestedPwd");
-    suggestedPwd.innerHTML = `Example PW: ${data.password} `;
+    suggestedPwd.innerHTML = `Suggested auto-generated password: ${data.password} `;
+    suggestedPwd.style.color = "blue";
 }
 
 //Validate password at least 6 chars and retype password is eqal
