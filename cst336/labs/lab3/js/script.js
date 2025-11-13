@@ -1,12 +1,27 @@
 //event listeners
 document.querySelector("#zip").addEventListener("change", displayCity);
 document.querySelector("#state").addEventListener("change", displayCounties);
-document.querySelector("#username").addEventListener("change", checkUsername);
+document.querySelector("#username").addEventListener("focus", checkUsername);
 document.querySelector("#signupForm").addEventListener("submit", function(event) {
     validateForm(event);
 });
 
-//need a displayStates?
+displayStates();
+
+//need a displayStates? https://csumb.space/api/allStatesAPI.php
+async function displayStates() {
+    let state = document.querySelector("#state").value;
+    // alert(document.querySelector("#state").value);
+    let url = `https://csumb.space/api/allStatesAPI.php`;
+    let response = await fetch(url);
+    let data = await response.json();
+    let stateList = document.querySelector("#state");
+    stateList.innerHTML = "<option> Select State </option>";
+    for (let i=0; i < data.length; i++) {
+        stateList.innerHTML += `<option>${data[i].state} </option>`;
+    }
+}
+
 
 //functions
 //Displaying city from Web API after entering a zip code (need async for fetch/ any await)
@@ -68,6 +83,7 @@ function validateForm(e) {
 
     if (password.length < 6) {
         document.querySelector("#suggestedPwd").innerHTML = "Example pw: h0tdog42";
+        //generate password with: https://csumb.space/api/suggestedPassword.php?length=8
         isValid = false;
     }
     if (password != passwordRetype) {
