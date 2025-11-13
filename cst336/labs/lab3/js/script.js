@@ -36,8 +36,11 @@ async function displayCity() {
     if (data.city) {
         zipError.innerHTML = "";
         document.querySelector("#city").innerHTML = data.city;
+        document.querySelector("#city").style.color = "lightblue";
         document.querySelector("#latitude").innerHTML = data.latitude;
+        document.querySelector("#latitude").style.color = "lightblue";
         document.querySelector("#longitude").innerHTML = data.longitude;
+        document.querySelector("#longitude").style.color = "lightblue";
     }
     else {
         zipError.innerHTML = "Zip code not found!";
@@ -77,7 +80,7 @@ async function checkUsername() {
         usernameError.innerHTML = " Username available!";
         usernameError.style.color = "green";
     } else if (!data.available) {
-        usernameError.innerHTML = " Username taken";
+        usernameError.innerHTML = " Username taken!";
         usernameError.style.color = "red";
     } 
 }
@@ -88,7 +91,7 @@ function validateForm(e) {
     //validate username
     let username = document.querySelector("#username").value;
     if (username.length == 0) {
-        document.querySelector("#usernameError").innerHTML = "Username Required!";
+        document.querySelector("#usernameError").innerHTML = "USERNAME REQUIRED!";
         document.querySelector("#usernameError").style.color = "red";
         isValid = false;
     }
@@ -122,8 +125,8 @@ async function examplePwd() {
     let response = await fetch(url);
     let data = await response.json();
     let suggestedPwd = document.querySelector("#suggestedPwd");
-    suggestedPwd.innerHTML = `Password must be at least 6 characters, suggested password: ${data.password} `;
-    suggestedPwd.style.color = "blue";
+    suggestedPwd.innerHTML = `Password must be 6+ characters, suggested password: ${data.password} `;
+    suggestedPwd.style.color = "lightblue";
 }
 
 //Validate password at least 6 chars and retype password is eqal

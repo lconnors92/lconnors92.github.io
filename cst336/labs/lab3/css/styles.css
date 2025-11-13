@@ -18,39 +18,35 @@ form {
 }
 
 footer {
-    font-size: 11px;
-    color: #92ea3fe7
+    font-size: 10px;
+    color: #efff09e7
 }
 
 h1 {
   font-family: "Sirin Stencil", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
+  font-size: xx-large;
+  letter-spacing: 5px;
 }
 
 #main {
-  border: 2px solid #e2ee35;
+  border: 2px solid #eb610b;
   background-color: black;
   border-radius: 10px;
   padding: 30px;
   display: inline-block;
-  box-shadow: 0 0 40px #f0c108;
-  margin: 20px;
+  box-shadow: 0 0 40px #ea7806;
+  margin: 40px auto;
 }
 
 /*Google Fonts*/
 
 body {
-  font-family: "Carrois Gothic SC", sans-serif;
-  font-weight: 400;
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 30;
   font-style: normal;
-}
-
-p {
-  font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 350;
-  font-style: normal;
+  font-size: large;
 }
 
 /* /* NEW STYLES / */
@@ -64,8 +60,19 @@ p {
     text-align: left;
 }
 
-.sirin-stencil-regular {
-  font-family: "Sirin Stencil", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+#usernameError,
+#passwordError,
+#zipError,
+#suggestedPwd {
+    font-size: 1.1rem;
+}
+
+#signupForm input,
+#signupForm select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #fff3f3;
+    background-color: #ea800f;
+    color: #f5f5f5;
 }
