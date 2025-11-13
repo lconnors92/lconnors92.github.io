@@ -9,8 +9,12 @@ body {
     background-attachment: fixed;
 }
 
-body, footer, form, h1 {
+body, footer, h1 {
     text-align: center;
+}
+
+form {
+    text-align: left;
 }
 
 footer {
@@ -19,13 +23,9 @@ footer {
 }
 
 h1 {
-  font-family: "Workbench", sans-serif;
-  font-optical-sizing: auto;
+  font-family: "Sirin Stencil", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "BLED" 0,
-    "SCAN" 0;
 }
 
 #main {
@@ -62,4 +62,10 @@ p {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+}
+
+.sirin-stencil-regular {
+  font-family: "Sirin Stencil", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
