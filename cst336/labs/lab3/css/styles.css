@@ -3,6 +3,10 @@
 body {
     background-color:black;
     color:white;
+    background-image: url(https://assets.warhammer-community.com/runbgvi6w4ow2v8m-1729174148.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 body, footer, form, h1 {
@@ -30,7 +34,7 @@ h1 {
   border-radius: 10px;
   padding: 30px;
   display: inline-block;
-  box-shadow: 0 0 40px #2ee00e;
+  box-shadow: 0 0 40px #f0c108;
   margin: 20px;
 }
 
