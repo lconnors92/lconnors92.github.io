@@ -118,7 +118,7 @@ async function examplePwd() {
     let response = await fetch(url);
     let data = await response.json();
     let suggestedPwd = document.querySelector("#suggestedPwd");
-    suggestedPwd.innerHTML = `Suggested auto-generated password: ${data.password} `;
+    suggestedPwd.innerHTML = `Password must be at least 6 characters, suggested password: ${data.password} `;
     suggestedPwd.style.color = "blue";
 }
 
