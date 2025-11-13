@@ -2,6 +2,11 @@
 document.querySelector("#zip").addEventListener("change", displayCity);
 document.querySelector("#state").addEventListener("change", displayCounties);
 document.querySelector("#username").addEventListener("change", checkUsername);
+document.querySelector("#signupForm").addEventListener("submit", function(event) {
+    validateForm(event);
+});
+
+
 
 //functions
 //Displaying city from Web API after entering a zip code (need async for fetch/ any await)
@@ -38,10 +43,60 @@ async function checkUsername() {
     let usernameError = document.querySelector("#usernameError");
     if (data.available) {
         usernameError.innerHTML = " Username available!";
-        usernameError.computedStyleMap.color = "green";
+        usernameError.style.color = "green";
     } 
     else {
         usernameError.innerHTML = " Username taken";
-        username.style.color = "red";
+        usernameError.style.color = "red";
     } 
 }
+
+//Validate form data
+function validateForm(e) {
+    let isValid = true;
+    //validate username
+    let username = document.querySelector("#username").value;
+    if (username.length == 0) {
+        document.querySelector("#usernameError").innerHTML = "Username Required!";
+        isValid = false;
+    }
+    //validate password
+    let password = document.querySelector("#password").value;
+    let passwordRetype = document.querySelector("#passwordRetype").value;
+    document.querySelector("#suggestedPwd").innerHTML = "";
+    document.querySelector("#passwordError").innerHTML = "";
+
+    if (password.length < 6) {
+        document.querySelector("#suggestedPwd").innerHTML = "Example pw: h0tdog42";
+        isValid = false;
+    }
+    if (password != passwordRetype) {
+        document.querySelector("#passwordError").innerHTML = "Passwords do not match!";
+        isValid = false;
+    }
+    if (!isValid) {
+        e.preventDefault();
+    }
+
+}
+
+//Validate password at least 6 chars and retype password is eqal
+// function validatePassword(e) {
+//     let isValid = true;
+//     let password = document.querySelector("#password").value;
+//     let passwordRetype = document.querySelector("#passwordRetype").value;
+//     document.querySelector("#suggestedPwd").innerHTML = "";
+//     document.querySelector("#passwordError").innerHTML = "";
+
+//     if (password.length < 6) {
+//         document.querySelector("#suggestedPwd").innerHTML = "Example pw: h0tdog42";
+//         isValid = false;
+//     }
+//     if (password != passwordRetype) {
+//         document.querySelector("#passwordError").innerHTML = "Passwords do not match!";
+//         isValid = false;
+//     }
+//     if (!isValid) {
+//         e.preventDefault();
+//     }
+// }
