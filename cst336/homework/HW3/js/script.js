@@ -1,16 +1,12 @@
 //event listeners
-document.querySelector("#zip").addEventListener("change", displayCity);
-document.querySelector("#state").addEventListener("change", displayCounties);
-document.querySelector("#username").addEventListener("input", checkUsername);
-document.querySelector("#signupForm").addEventListener("submit", function(event) {
+document.querySelector("#searchForm").addEventListener("submit", function(event) {
     validateForm(event);
 });
-document.querySelector("#password").addEventListener("focus", examplePwd);
 
 
-displayStates();
 
 //need a displayStates? https://csumb.space/api/allStatesAPI.php
+//HW3 make Display results?
 async function displayStates() {
     // let state = document.querySelector("#state").value; don't need this, "state" is attribute in API
     // alert(document.querySelector("#state").value);
@@ -25,7 +21,7 @@ async function displayStates() {
 }
 
 
-//functions
+//functions HW3 keep for API implementation example
 //Displaying city from Web API after entering a zip code (need async for fetch/ any await)
 async function displayCity() {
     let zipCode = document.querySelector("#zip").value;
@@ -88,31 +84,19 @@ async function checkUsername() {
 //Validate form data
 function validateForm(e) {
     let isValid = true;
-    //validate username
-    let username = document.querySelector("#username").value;
-    if (username.length == 0) {
-        document.querySelector("#usernameError").innerHTML = "USERNAME REQUIRED!";
-        document.querySelector("#usernameError").style.color = "red";
+    //validate that at least one field is not blank
+    let fName = document.querySelector("#fName").value;
+    let lName = document.querySelector("#lName").value;
+    let tName = document.querySelector("#tName").value;
+    let zip = document.querySelector("#zip").value;
+    let city = document.querySelector("#city").value;
+    let email = document.querySelector("#email").value;
+    if (!fName && !lName && !tName && !zip && !city && !email){
+        document.querySelector("#searchError").innerHTML = "You must enter at least one value to view spy search results!";
+        document.querySelector("#searchError").style.color = "red";
         isValid = false;
     }
-    //validate password
-    let password = document.querySelector("#password").value;
-    let passwordRetype = document.querySelector("#passwordRetype").value;
-    document.querySelector("#suggestedPwd").innerHTML = "";
-    document.querySelector("#passwordError").innerHTML = "";
 
-    if (password.length < 6) {
-        examplePwd();
-        // document.querySelector("#suggestedPwd").innerHTML = "Example pw: h0tdog42";
-        // examplePwd();
-        //generate password with: https://csumb.space/api/suggestedPassword.php?length=8
-        isValid = false;
-    }
-    if (password != passwordRetype) {
-        document.querySelector("#passwordError").innerHTML = "Passwords do not match!";
-        document.querySelector("#passwordError").style.color = "red";
-        isValid = false;
-    }
     if (!isValid) {
         e.preventDefault();
     }

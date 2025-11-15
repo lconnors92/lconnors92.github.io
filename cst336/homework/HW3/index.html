@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title> SECRET AGENT DATABASE (FAKER API FAKE DATA RETRIEVER) </title>
-   <br><br>
+   <title> OPERATION F.R.E.D. (Fake Real Espionage Database via Faker API) </title>
+   
    <link rel="preconnect" href="https://fonts.googleapis.com">
     
           <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,28 +17,28 @@
 </head>
 
 <body>
-    <h1> WELCOME, SECRET AGENT <br><br> REAL FAKE INTELLIGENCE DATABASE (FAKER API)</h1>
+    <h1> OPERATION F.R.E.D. <br><br> Fake Real Espionage Database (via Faker API)</h1>
 
     <div id="main">
-        <form id="signupForm" action="welcome.html"> 
-        Target Name: <input type="text" name="fName"><br>
-        Last Name:  <input type="text" name="lName"><br><br>
-        Gender: <input type="radio" name="gender" value="m">Male  <input type="radio" name="gender" value="f">Female <input type="radio" name="gender" value="o">Decline to say<br><br>
-        Zip Code:  <input type="text" id="zip" name="zip">
-            <span id="zipError"></span> <br>
-        City:   <span id="city"></span> <br>
-        Latitude: <span id="latitude"></span><br>
-        Longitude: <span id="longitude"></span><br><br>
-        Select a State:  <select id="state"></select><br>
-        Select a County: <select id="county"></select><br><br>
-        Desired Username: <input type="text" id="username" >
-            <span id="usernameError"></span><br>
-        Password: <input type="password" id="password">
-            <span id="suggestedPwd"></span> <br>
-        Type Password Again: <input type="password" id="passwordRetype">
-            <span id="passwordError"></span> <br><br>
-        <input id="subButton" type="submit" value="Sign up!">
+        Welcome, secret agent! <br><br>
+        Use this secret agent database console to locate and discover people of interest in your current ongoing cases! Search for POI with any of the below fields to see database results!<br><br>
+        Note: You must <em>fill in at least one field</em> in order to see results from F.R.E.D.<br><br>
+        <form id="searchForm"> 
+        Target Name (First): <input id="fName" type="text" name="fName"><br>
+        Target Name (Last): <input id="lName" type="text" name="lName"><br>
+        Target Name (Full): <input id="tName" type="text" name="tName"><br>
+        Target Zip Code:  <input id="zip" type="text" name="zip"><br>
+        Target City: <input id="city" type="text" name="city"><br>
+        Target Email: <input id="email" type="text" name="email"><br>
+        <span id="searchError"></span><br>
+
+        <input id="subButton" type="submit" value="Execute secret spy search!">
     </form>
+
+    <div id="results">
+
+    </div>
+
     </div>
      
     <script src="js/script.js"></script>
