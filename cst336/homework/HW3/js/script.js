@@ -66,7 +66,7 @@ function validateForm(e) {
 // _seed=# to fix results from faker site
 async function spySearch(fName, lName, country, city, email) {
     let resultsList = document.querySelector("#results");
-    resultsList.innerHTML = "F.R.E.D. is fetching the results, this may take a moment........";
+    resultsList.innerHTML = "F.R.E.D. is fetching the results via FAKER API, this may take a moment........";
     let matches = 0;
     let url= `https://fakerapi.it/api/v1/persons?_seed=1234675&_quantity=80`;
     let response = await fetch(url);
