@@ -23,11 +23,14 @@ footer {
 }
 
 h1 {
-  font-family: "Sirin Stencil", sans-serif;
-  font-weight: 800;
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
   font-style: normal;
-  font-size: 2.6rem;
-  letter-spacing: 5px;
+  font-size: 2.4rem;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
 }
 
 #main {
@@ -44,13 +47,11 @@ h1 {
 /*Google Fonts*/
 
 body {
-  font-family: "Dela Gothic One", sans-serif;
-  font-weight: 30;
+  font-family: "Carrois Gothic SC", sans-serif;
+  font-weight: 400;
   font-style: normal;
-  font-size: large;
 }
 
-/* /* NEW STYLES / */
 
 p {
     line-height: normal;
@@ -61,11 +62,8 @@ p {
     text-align: left;
 }
 
-#usernameError,
-#passwordError,
-#zipError,
-#suggestedPwd {
-    font-size: 1.1rem;
+#searchError {
+    font-size: 1.3rem;
 }
 
 #searchForm input,
@@ -92,7 +90,7 @@ p {
 }
 
 #subButton:hover {
-    background-color: #ff7f1a;
+    background-color: #c919f9;
     transform: scale(1.15);
     transition: 0.7s;
 }
@@ -121,4 +119,8 @@ input[type="radio"] {
 #searchForm select {
     font-size: 1.1rem;
     font-weight: 540;
+}
+
+#results {
+    font-size: 1.3rem;
 }

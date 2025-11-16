@@ -66,7 +66,7 @@ function validateForm(e) {
 // _seed=# to fix results from faker site
 async function spySearch(fName, lName, country, city, email) {
     let resultsList = document.querySelector("#results");
-    resultsList.innerHTML = "F.R.E.D. is fetching the results.............";
+    resultsList.innerHTML = "F.R.E.D. is fetching the results, this may take a moment........";
     let matches = 0;
     let url= `https://fakerapi.it/api/v1/persons?_seed=1234675&_quantity=80`;
     let response = await fetch(url);
@@ -83,8 +83,9 @@ async function spySearch(fName, lName, country, city, email) {
         }
     }
     if (matches == 0) {
-            resultsList.innerHTML = "Sorry, no P.O.I to return from that search!"
-            resultsList.innerHTML.style.color = "red";
+        document.querySelector("#searchError").innerHTML = "Sorry, no P.O.I to return from that search!!";
+        document.querySelector("#searchError").style.color = "orange";
+        resultsList.innerHTML = "No matching attributes found."
         }
 }
 
