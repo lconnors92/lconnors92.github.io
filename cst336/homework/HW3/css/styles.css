@@ -101,11 +101,6 @@ img {
     border-radius: 10px;
 }
 
-#searchForm input,
-#searchForm select {
-    padding: 10px;
-}
-
 input[type="radio"] {
     transform: scale(1.3);
     cursor: pointer;
@@ -120,6 +115,7 @@ input[type="radio"] {
 #searchForm select {
     font-size: 1.05rem;
     font-weight: 540;
+    padding: 10px;
 }
 
 #results {
