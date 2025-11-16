@@ -60,6 +60,7 @@ p {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    font-size: 1.15rem;
 }
 
 #searchError {
@@ -117,7 +118,7 @@ input[type="radio"] {
 
 #searchForm input,
 #searchForm select {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 540;
 }
 

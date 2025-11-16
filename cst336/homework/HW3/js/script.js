@@ -78,12 +78,14 @@ async function spySearch(fName, lName, country, city, email) {
         (persons[i].address.country == country) || (persons[i].address.city == city) || (persons[i].email.includes(email) && email.length != 0 )) {
             resultsList.innerHTML += `<br>TARGET NAME: ${persons[i].firstname}  ${persons[i].lastname}<br> 
                                           TARGET LOCATION: ${persons[i].address.country},  ${persons[i].address.city}<br> 
+                                          TARGET LATITUDE: ${persons[i].address.latitude}<br>
+                                          TARGET LONGITUDE: ${persons[i].address.longitude}<br>
                                           TARGET EMAIL: ${persons[i].email}<br><br>`;
             matches++;
         }
     }
     if (matches == 0) {
-        document.querySelector("#searchError").innerHTML = "Sorry, no P.O.I to return from that search!!";
+        document.querySelector("#searchError").innerHTML = "Sorry, no P.O.I. to return from that search!!";
         document.querySelector("#searchError").style.color = "orange";
         resultsList.innerHTML = "No matching attributes found."
         }
