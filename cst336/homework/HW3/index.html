@@ -21,40 +21,38 @@
 
     <div id="main">
         Welcome, secret agent! <br><br>
-        Use this secret agent database console to locate and discover people of interest in your current ongoing cases! Search for POI with any of the below fields to see database results!<br><br>
-        Note: You must <em>fill in at least one field</em> in order to see results from F.R.E.D.<br><br>
+
+        This console (known as F.R.E.D.) connects to our agency's fake identity database. 
+        Use this tool to discover, locate, and identify people of interest in your internal threat cases! <br><br>
+
+        Note: You must fill in at least one field to see fake identity results from F.R.E.D. 
+        <br><br><br>
+        
         <form id="searchForm"> 
-        Target Name (First): <input id="fName" type="text" name="fName"><br>
-        Target Name (Last): <input id="lName" type="text" name="lName"><br>
-        Target Name (Full): <input id="tName" type="text" name="tName"><br>
-        Target Zip Code:  <input id="zip" type="text" name="zip"><br>
-        Target City: <input id="city" type="text" name="city"><br>
-        Target Email: <input id="email" type="text" name="email"><br>
-        <span id="searchError"></span><br>
-
-        <input id="subButton" type="submit" value="Execute secret spy search!">
-    </form>
-
-    <div id="results">
-
+            Target Name (First): <input id="fName" type="text" name="fName"><br>
+            Target Name (Last): <input id="lName" type="text" name="lName"><br>
+            Select Target Country:  <select id="country"></select><br>
+            Select Target City: <select id="city"></select><br>
+            Target Email: <input id="email" type="text" name="email"><br>
+                <span id="searchError"></span><br>
+            <input id="subButton" type="submit" value="Execute secret spy search!"><br>
+                <span id="results"></span><br><br>
+        </form>
     </div>
-
-    </div>
-     
+        
     <script src="js/script.js"></script>
 
     <footer>
-            <!-- Your last name and year here in ALL assignments -->
-             <br><br><br><br><br><br><br><br>
-            <hr>
-            <br><br>
-            CST336 Internet Programming. 2025&copy; Connors <br>
-            <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br>
-            <figure>
-                <img id="ft_img" src="img/Logo_Primary-Reversed-color-resize.png" alt="Picture of CSUMB Logo Reversed Colors">
-            </figure>
-            
-        </footer>
-
+        <!-- Your last name and year here in ALL assignments -->
+            <br><br><br><br><br><br><br><br>
+        <hr>
+        <br><br>
+        CST336 Internet Programming. 2025&copy; Connors <br>
+        <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br>
+        <figure>
+            <img id="ft_img" src="img/Logo_Primary-Reversed-color-resize.png" alt="Picture of CSUMB Logo Reversed Colors">
+        </figure>
+    </footer>
 </body>
+
 </html>

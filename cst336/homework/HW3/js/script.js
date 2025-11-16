@@ -3,133 +3,85 @@ document.querySelector("#searchForm").addEventListener("submit", function(event)
     validateForm(event);
 });
 
+displayCountries();
+displayCities();
 
-
-//need a displayStates? https://csumb.space/api/allStatesAPI.php
-//HW3 make Display results?
-async function displayStates() {
-    // let state = document.querySelector("#state").value; don't need this, "state" is attribute in API
-    // alert(document.querySelector("#state").value);
-    let url = `https://csumb.space/api/allStatesAPI.php`;
+//Display countries
+async function displayCountries() {
+    let url = `https://fakerapi.it/api/v1/persons?_seed=123465&_quantity=100`;
     let response = await fetch(url);
-    let data = await response.json();
-    let stateList = document.querySelector("#state");
-    stateList.innerHTML = "<option> Select State </option>";
-    for (let i=0; i < data.length; i++) {
-        stateList.innerHTML += `<option value="${data[i].usps}">${data[i].state} </option>`;
+    let jsonData = await response.json();
+    let persons = jsonData.data; //Instead of the records being in a set called persons like the url... it's "data"... ;(
+    let countriesList = document.querySelector("#country");
+    countriesList.innerHTML = "<option value=''> Select Country </option>"
+    for (let i=0; i < persons.length; i++) {
+            countriesList.innerHTML += `<option value="${persons[i].address.country}">${persons[i].address.country}</option>`;
+        }
     }
-}
 
-
-//functions HW3 keep for API implementation example
-//Displaying city from Web API after entering a zip code (need async for fetch/ any await)
-async function displayCity() {
-    let zipCode = document.querySelector("#zip").value;
-    let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipCode}`;
+//Display cities
+async function displayCities() {
+    let url = `https://fakerapi.it/api/v1/persons?_seed=123465&_quantity=100`;
     let response = await fetch(url);
-    let data = await response.json();
-    let zipError = document.querySelector("#zipError");
-    if (data.city) {
-        zipError.innerHTML = "";
-        document.querySelector("#city").innerHTML = data.city;
-        document.querySelector("#city").style.color = "lightblue";
-        document.querySelector("#latitude").innerHTML = data.latitude;
-        document.querySelector("#latitude").style.color = "lightblue";
-        document.querySelector("#longitude").innerHTML = data.longitude;
-        document.querySelector("#longitude").style.color = "lightblue";
+    let jsonData = await response.json();
+    let persons = jsonData.data; //Instead of the records being in a set called persons like the url... it's "data"... ;(
+    let citiesList = document.querySelector("#city");
+    citiesList.innerHTML = "<option value=''> Select City </option>"
+    for (let i=0; i < persons.length; i++) {
+            citiesList.innerHTML += `<option value="${persons[i].address.city}">${persons[i].address.city}</option>`;
+        }
     }
-    else {
-        zipError.innerHTML = "Zip code not found!";
-        zipError.style.color = "red";
-        document.querySelector("#city").innerHTML = "";
-        document.querySelector("#latitude").innerHTML = "";
-        document.querySelector("#longitude").innerHTML = "";
-    }
-    
-}
 
-//display counties based on 2-letter abbrev of state
-async function displayCounties() {
-    let state = document.querySelector("#state").value;
-    // alert(document.querySelector("#state").value);
-    let url = `https://csumb.space/api/countyListAPI.php?state=${state}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    let countyList = document.querySelector("#county");
-    countyList.innerHTML = "<option> Select County </option>";
-    for (let i=0; i < data.length; i++) {
-        countyList.innerHTML += `<option> ${data[i].county} </option>`;
-    }
-}
-
-//checking username
-async function checkUsername() {
-    let username = document.querySelector("#username").value;
-    let url = `https://csumb.space/api/usernamesAPI.php?username=${username}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    let usernameError = document.querySelector("#usernameError");
-    if (username.length === 0) {
-        usernameError.innerHTML = "Username Required!";
-        usernameError.style.color = "red";
-    } else if (data.available) {
-        usernameError.innerHTML = " Username available!";
-        usernameError.style.color = "green";
-    } else if (!data.available) {
-        usernameError.innerHTML = " Username taken!";
-        usernameError.style.color = "red";
-    } 
-}
 
 //Validate form data
 function validateForm(e) {
+    e.preventDefault();
     let isValid = true;
-    //validate that at least one field is not blank
     let fName = document.querySelector("#fName").value;
     let lName = document.querySelector("#lName").value;
-    let tName = document.querySelector("#tName").value;
-    let zip = document.querySelector("#zip").value;
+    let country = document.querySelector("#country").value;
     let city = document.querySelector("#city").value;
     let email = document.querySelector("#email").value;
-    if (!fName && !lName && !tName && !zip && !city && !email){
+    //validate that at least one field is not blank
+    if (!fName && !lName && !country && !city && !email){
         document.querySelector("#searchError").innerHTML = "You must enter at least one value to view spy search results!";
         document.querySelector("#searchError").style.color = "red";
         isValid = false;
     }
 
-    if (!isValid) {
-        e.preventDefault();
+    if (isValid) {
+        spySearch(fName, lName, country, city, email);
+        document.querySelector("#searchError").innerHTML = "";
     }
 
+
 }
 
-async function examplePwd() {
-    let password = document.querySelector("#password").value;
-    let url = `https://csumb.space/api/suggestedPassword.php?length=8`;
+//example record from url:
+//{"id":1,"firstname":"Lavern","lastname":"Lowe","email":"will.nicolas@zulauf.com","phone":"+15208450979",
+// "birthday":"1942-02-18","gender":"male","address":{"id":1,"street":"8869 Fritsch Cliffs",
+// "streetName":"Hayes Manor","buildingNumber":"1986","city":"Ferryhaven",
+// "zipcode":"05836-7861","country":"United States","country_code":"US","latitude":20.255277,"longitude":-83.196957},
+// "website":"http:\/\/schmitt.com","image":"http:\/\/placeimg.com\/640\/480\/people"}
+// _seed=# to fix results from faker site
+async function spySearch(fName, lName, country, city, email) {
+    let resultsList = document.querySelector("#results");
+    resultsList.innerHTML = "F.R.E.D. is fetching the results.............";
+    let matches = 0;
+    let url= `https://fakerapi.it/api/v1/persons?_seed=12345&_quantity=1000`;
     let response = await fetch(url);
-    let data = await response.json();
-    let suggestedPwd = document.querySelector("#suggestedPwd");
-    suggestedPwd.innerHTML = `Password must be 6+ characters, suggested password: ${data.password} `;
-    suggestedPwd.style.color = "lightblue";
+    let jsonData = await response.json();
+    let persons = jsonData.data; //Instead of the records being in a set called persons like the url... it's "data"... ;(
+    resultsList.innerHTML = `Secret Spy Person of Interest Search Results:<br>`;
+    for (let i=0; i < persons.length; i++) {
+        if (((persons[i].firstname.includes(fName)) && fName.length > 1) || ((persons[i].lastname.includes(lName) && fName.length > 1)) || (persons[i].address.country == country) || (persons[i].address.city == city) || (persons[i].email == email)) {
+            resultsList.innerHTML += `<br>TARGET NAME: ${persons[i].firstname}  ${persons[i].lastname}<br> TARGET LOCATION: ${persons[i].address.country},  ${persons[i].address.city}<br> TARGET EMAIL: ${persons[i].email}<br><br>`;
+            matches++;
+        }
+    }
+    if (matches == 0) {
+            resultsList.innerHTML = "Sorry, no P.O.I to return from that search!"
+            resultsList.innerHTML.style.color = "red";
+        }
 }
 
-//Validate password at least 6 chars and retype password is eqal
-// function validatePassword(e) {
-//     let isValid = true;
-//     let password = document.querySelector("#password").value;
-//     let passwordRetype = document.querySelector("#passwordRetype").value;
-//     document.querySelector("#suggestedPwd").innerHTML = "";
-//     document.querySelector("#passwordError").innerHTML = "";
-
-//     if (password.length < 6) {
-//         document.querySelector("#suggestedPwd").innerHTML = "Example pw: h0tdog42";
-//         isValid = false;
-//     }
-//     if (password != passwordRetype) {
-//         document.querySelector("#passwordError").innerHTML = "Passwords do not match!";
-//         isValid = false;
-//     }
-//     if (!isValid) {
-//         e.preventDefault();
-//     }
-// }
