@@ -8,7 +8,7 @@ displayCities();
 
 //Display countries
 async function displayCountries() {
-    let url = `https://fakerapi.it/api/v1/persons?_seed=123465&_quantity=100`;
+    let url = `https://fakerapi.it/api/v1/persons?_seed=1234675&_quantity=80`;
     let response = await fetch(url);
     let jsonData = await response.json();
     let persons = jsonData.data; //Instead of the records being in a set called persons like the url... it's "data"... ;(
@@ -21,7 +21,7 @@ async function displayCountries() {
 
 //Display cities
 async function displayCities() {
-    let url = `https://fakerapi.it/api/v1/persons?_seed=123465&_quantity=100`;
+    let url = `https://fakerapi.it/api/v1/persons?_seed=1234675&_quantity=80`;
     let response = await fetch(url);
     let jsonData = await response.json();
     let persons = jsonData.data; //Instead of the records being in a set called persons like the url... it's "data"... ;(
@@ -68,14 +68,17 @@ async function spySearch(fName, lName, country, city, email) {
     let resultsList = document.querySelector("#results");
     resultsList.innerHTML = "F.R.E.D. is fetching the results.............";
     let matches = 0;
-    let url= `https://fakerapi.it/api/v1/persons?_seed=12345&_quantity=1000`;
+    let url= `https://fakerapi.it/api/v1/persons?_seed=1234675&_quantity=80`;
     let response = await fetch(url);
     let jsonData = await response.json();
     let persons = jsonData.data; //Instead of the records being in a set called persons like the url... it's "data"... ;(
     resultsList.innerHTML = `Secret Spy Person of Interest Search Results:<br>`;
     for (let i=0; i < persons.length; i++) {
-        if (((persons[i].firstname.includes(fName)) && fName.length > 1) || ((persons[i].lastname.includes(lName) && fName.length > 1)) || (persons[i].address.country == country) || (persons[i].address.city == city) || (persons[i].email == email)) {
-            resultsList.innerHTML += `<br>TARGET NAME: ${persons[i].firstname}  ${persons[i].lastname}<br> TARGET LOCATION: ${persons[i].address.country},  ${persons[i].address.city}<br> TARGET EMAIL: ${persons[i].email}<br><br>`;
+        if ((persons[i].firstname.includes(fName) && fName.length != 0) || (persons[i].lastname.includes(lName) && (lName.length != 0)) || 
+        (persons[i].address.country == country) || (persons[i].address.city == city) || (persons[i].email.includes(email) && email.length != 0 )) {
+            resultsList.innerHTML += `<br>TARGET NAME: ${persons[i].firstname}  ${persons[i].lastname}<br> 
+                                          TARGET LOCATION: ${persons[i].address.country},  ${persons[i].address.city}<br> 
+                                          TARGET EMAIL: ${persons[i].email}<br><br>`;
             matches++;
         }
     }
